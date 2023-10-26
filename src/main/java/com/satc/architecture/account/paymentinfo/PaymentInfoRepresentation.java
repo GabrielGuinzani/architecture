@@ -16,42 +16,44 @@ public interface PaymentInfoRepresentation {
     @AllArgsConstructor
     @NoArgsConstructor
     @Data
-    class CreatePaymentInfo{
+    class CreatePaymentInfo {
 
         @NotNull
         private PaymentType paymentType;
+
         @Valid
-        private  CreateCreditCardInfo creditCard;
+        private CreateCreditCardInfo creditCard;
+
         @Valid
-        private  CreateBankSlipInfo bankSlip;
+        private CreateBankSlipInfo bankSlip;
     }
 
     @Builder
     @AllArgsConstructor
     @NoArgsConstructor
     @Data
-    class CreateCreditCardInfo{
+    class CreateCreditCardInfo {
         @NotNull
         @NotEmpty
         private String cardHolder;
+
         @NotNull
         @NotEmpty
         private String cardNumber;
+
         @NotNull
         @NotEmpty
         private String cardCvv;
+
         @NotNull
-        @NotEmpty
+//        @NotEmpty
         private LocalDate expirationDate;
-
-
     }
-
     @Builder
     @AllArgsConstructor
     @NoArgsConstructor
     @Data
-    class CreateBankSlipInfo{
+    class CreateBankSlipInfo {
         @NotNull(message = "O nome não pode ser nulo")
         @NotEmpty(message = "O nome não pode ser vazio")
         private String name;
@@ -63,10 +65,5 @@ public interface PaymentInfoRepresentation {
         @NotNull(message = "O document não pode ser nulo")
         @NotEmpty(message = "O document não pode ser vazio")
         private String document;
-
     }
-
-
-
-
 }

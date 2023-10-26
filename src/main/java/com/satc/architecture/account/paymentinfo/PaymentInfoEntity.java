@@ -11,6 +11,4 @@ import lombok.NoArgsConstructor;
 @Data
 public class PaymentInfoEntity {
 
-
-
 }

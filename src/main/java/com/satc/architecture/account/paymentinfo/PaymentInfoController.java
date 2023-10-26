@@ -1,7 +1,5 @@
 package com.satc.architecture.account.paymentinfo;
 
-import com.satc.architecture.account.paymentinfo.creditcard.CreditCardService;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,16 +18,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PaymentInfoController {
 
     private PaymentInfoService paymentInfoService;
-    private PaymentInfoFactory paymentInfoFactory;
 
-    private CreditCardService creditCardService;
+
 
     @PostMapping
     @RequestMapping("create")
     public ResponseEntity createNewAccountPayment(
-             @RequestBody PaymentInfoRepresentation.CreatePaymentInfo createPaymentInfo){
-        PaymentInfoEntity paymentInfoEntity = PaymentInfoFactory.getPaymentInfoEntity(createPaymentInfo);
+            @Validated @RequestBody PaymentInfoRepresentation.CreatePaymentInfo createPaymentInfo) {
+
+        PaymentInfoEntity paymentInfoEntity =
+                PaymentInfoFactory.getPaymentInfoEntity(createPaymentInfo);
+
+
         return ResponseEntity.ok().build();
     }
-
 }
