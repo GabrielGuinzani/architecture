@@ -4,6 +4,9 @@ import com.satc.architecture.subscription.SubscriptionEntity;
 import com.satc.architecture.subscription.behavior.IRenewBehavior;
 
 public class Sales extends SubscriptionEntity implements IRenewBehavior {
+    public Sales(SubscriptionEntity subscription){
+        super(subscription);
+    }
 
     @Override
     public void performRenew(){
